@@ -1,8 +1,9 @@
-Data Scientist Salary Prediction
+# Data Scientist Salary Prediction
+![Example of Analytics](images/example-image-salary.PNG)
 
 This repository contains a project focused on predicting the salaries of data scientists using regression models. The project includes data preprocessing, model training, evaluation, and visualization.
 
-Table of Contents
+## Table of Contents
 Introduction
 Dataset
 Installation
@@ -12,13 +13,16 @@ Results
 Acknowledgements
 Contributing
 License
-Introduction
-Predicting the salary of a data scientist is a valuable task for various stakeholders including job seekers, employers, and educational institutions. This project leverages machine learning techniques to predict salaries based on various features such as experience, education, location, and industry.
 
-Dataset
+
+## Introduction
+Predicting the salary of a data scientist is a valuable task for various stakeholders including job seekers, employers, and educational institutions. 
+This project leverages machine learning techniques to predict salaries based on various features such as experience, education, location, and industry.
+
+## Dataset
 The dataset used in this project includes various features that influence the salary of data scientists. It is sourced from publicly available data repositories and includes features such as years of experience, education level, location, and industry.
 
-Installation
+## Installation
 To run this project, you need to have Python and the following libraries installed:
 
 pandas
@@ -27,6 +31,13 @@ matplotlib
 seaborn
 scikit-learn
 jupyter
+
+pandas version: 2.2.2
+matplotlib version: 3.8.4
+seaborn version: 0.13.2
+scikit-learn version: 1.4.2
+xgboost: 2.0.3
+
 You can install the required libraries using pip:
 
 sh
