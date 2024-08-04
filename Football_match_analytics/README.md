@@ -160,7 +160,7 @@ NOTE: best and last models were trained and saved using google colab with the re
   
   speed_and_distance_estimator.py: Python script for estimating the speed and distance traveled by players and visualizing this information on the video./
   
-
+## Code
   
 ## Results
 
@@ -173,3 +173,8 @@ NOTE: best and last models were trained and saved using google colab with the re
 
 ## License
   This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+This project was inspired by and modified from the work available at [https://github.com/abdullahtarek/football_analysis](https://github.com/abdullahtarek/football_analysis). I appreciate the efforts of the original authors and contributors.
+
