@@ -34,6 +34,6 @@ This project aimed to classify a cell as cancerous or non-cancerous by utilizing
 9)	Breast cancer detection Part II: Breast Scan analysis using Neural Networks.
 For this project, I plan to continue working on breast cancer detection. The goal is to develop a neural network model that will use breast scans to classify for cancer detection. This project is a continuation of the previous project and can improve the classification accuracy when combined with the XGBoost classification model.
 
-10)	LLM.
-Have not identified what exactly I will do for this project, but I want to do a project on LLM.
+10)	Football match real-time analytics using Neural Networks
+    This project is focused on developing a tool that shows on-screen match statistics. The model is focused on object recognition using the YOLO model, as well as object assignment and tracking. This information is used to calculate ball possession, speed, player and ball tracking and team total possesion. This model can be used for mp4 format video files and also can be modified to work with online video streams.
 
