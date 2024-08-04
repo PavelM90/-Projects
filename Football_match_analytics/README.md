@@ -51,7 +51,7 @@
   Place your input videos in the input_videos directory.
 
 ## Run the main script:
-
+  Use Football_Analysis_Image.ipyng from the development_and_analysis folder to train the mode. Once the model is trained save best.pt and place it into the models folder.
 
   Copy code
   python main.py
