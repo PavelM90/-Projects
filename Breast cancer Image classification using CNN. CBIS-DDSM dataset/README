@@ -53,7 +53,7 @@ pip install pandas numpy matplotlib plotly seaborn opencv-python tensorflow pill
 Usage
 Clone this repository:
 
-git clone https://github.com/yourusername/breast-cancer-classification.git
+git clone https://github.com/yourusername/Breast cancer Image classification using CNN. CBIS-DDSM dataset.git
 Navigate to the project directory:
 
 
@@ -61,6 +61,7 @@ Run the Jupyter Notebook:
 
 jupyter notebook "Breast cancer Image classification using CNN. CBIS-DDSM dataset_july.ipynb"
 
+NOTE: The dataset is too large to upload to the repo; please use this link to find the data  https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
 
 # File Descriptions
 Breast cancer Image classification using CNN. CBIS-DDSM dataset_july.ipynb: The main notebook containing the code for data preprocessing, model training, evaluation, and visualization.
