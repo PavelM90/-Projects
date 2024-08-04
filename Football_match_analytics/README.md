@@ -56,7 +56,6 @@
   Copy code
   python main.py
 ## Directory Structure
-
 football-match-analytics/
 ├── main.py
 ├── Object_Detection.ipynb
@@ -95,6 +94,7 @@ football-match-analytics/
 │   └── last.pt
 ├── images/
 │   └── example.png
+
 
 
 
