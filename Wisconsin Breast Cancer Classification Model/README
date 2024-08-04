@@ -1,7 +1,10 @@
 ### Wisconsin Breast Cancer Classification Model
 
 Project Overview
-This project involves building a machine learning classification model using Linear Regression, Random Forest and XGBoost algorithms to predict whether a given breast cancer sample is benign or malignant based on features derived from a nuclei characteristic. The dataset used is the Wisconsin Breast Cancer Dataset, which is publicly available and widely used for research and educational purposes. The model developed in this project aims to offload the manual labor involved in reviewing patients' analyses and test results by classifying tumors as malignant or benign. This supervised machine learning model can assist in the automated detection of breast cancer based on blood and cell analysis results, providing oncologists with a tool to support the detection of breast cancer and minimize human involvement, thus reducing the possibility of human errors.
+This project involves building a machine learning classification model using Linear Regression, Random Forest and XGBoost algorithms to predict whether a given breast cancer sample is benign or malignant based on features derived from a nuclei characteristic. 
+The dataset used is the Wisconsin Breast Cancer Dataset, which is publicly available and widely used for research and educational purposes. 
+The model developed in this project aims to offload the manual labor involved in reviewing patients' analyses and test results by classifying tumors as malignant or benign. 
+This supervised machine learning model can assist in the automated detection of breast cancer based on blood and cell analysis results, providing oncologists with a tool to support the detection of breast cancer and minimize human involvement, thus reducing the possibility of human errors.
 
 Dataset
 The dataset consists of 32 features computed from nuclei characteristics and a target variable (diagnosis) indicating whether the tumor is benign (B) or malignant (M). The features include:
