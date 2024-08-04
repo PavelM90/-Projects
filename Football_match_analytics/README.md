@@ -138,17 +138,28 @@ football-match-analytics/
 NOTE: best and last models were trained and saved using google colab with the resource of GPU hardware. You can use the trained model or re-train your own.
 
 ## File Descriptions
-  Object_Detection.ipynb: Jupyter notebook for image analysis and visualization related to football match analytics. This notebook contains code and visualizations for analyzing images extracted from football match videos, including player and ball tracking, team color assignment, and other relevant visual analytics.
-  main.py: The main script contains the code for reading video, tracking objects, estimating camera movement, transforming views, estimating speed and distance, assigning teams, calculating possession time, and saving the output video.
-  input_videos/: Directory to place the input video files.
-  output_videos/: Directory where the output video with analytics overlay will be saved.
-  color_assign.py: Jupyter notebook for developing and testing the color assignment of players' jerseys.
-  Football_Analysis_Images.ipynb: Jupyter notebook for image analysis and visualization related to football match analytics.
-  tracker.py: Python script containing the implementation of tracking algorithms for players and ball.
-  bound_box_utils.py: Python script containing utility functions for handling bounding boxes in video frames.
-  video_utils.py: Python script containing utility functions for video processing tasks.
-  player_ball_assignment.py: Python script for assigning the ball to players based on their positions.
-  speed_and_distance_estimator.py: Python script for estimating the speed and distance traveled by players and visualizing this information on the video.
+  Object_Detection.ipynb: Jupyter notebook for image analysis and visualization related to football match analytics. This notebook contains code and visualizations for analyzing images extracted from football match videos, including player and ball tracking, team color assignment, and other relevant visual analytics./
+  
+  main.py: The main script contains the code for reading video, tracking objects, estimating camera movement, transforming views, estimating speed and distance, assigning teams, calculating possession time, and saving the output video./
+  
+  input_videos/: Directory to place the input video files./
+  
+  output_videos/: Directory where the output video with analytics overlay will be saved./
+  
+  color_assign.py: Jupyter notebook for developing and testing the color assignment of players' jerseys./
+  
+  Football_Analysis_Images.ipynb: Jupyter notebook for image analysis and visualization related to football match analytics./
+  
+  tracker.py: Python script containing the implementation of tracking algorithms for players and ball./
+  
+  bound_box_utils.py: Python script containing utility functions for handling bounding boxes in video frames./
+  
+  video_utils.py: Python script containing utility functions for video processing tasks./
+  
+  player_ball_assignment.py: Python script for assigning the ball to players based on their positions./
+  
+  speed_and_distance_estimator.py: Python script for estimating the speed and distance traveled by players and visualizing this information on the video./
+  
 
   
 ## Results
