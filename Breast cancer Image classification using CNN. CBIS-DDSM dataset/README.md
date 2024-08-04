@@ -1,5 +1,5 @@
 # Breast Cancer Image Classification using CNN
-![Example of cancer](images/example-image.png)
+![Example of cancer](images/example-image.PNG)
 
 This repository contains a project that uses Convolutional Neural Networks (CNNs) to classify breast cancer images from the CBIS-DDSM dataset. 
 The project involves data preprocessing, model training, evaluation, and visualization.
