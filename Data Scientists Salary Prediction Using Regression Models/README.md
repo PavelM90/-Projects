@@ -40,20 +40,21 @@ xgboost: 2.0.3
 
 You can install the required libraries using pip:
 
-sh
+
 Copy code
 pip install pandas numpy matplotlib seaborn scikit-learn jupyter
 Usage
 Clone this repository:
-sh
+
 Copy code
-git clone https://github.com/yourusername/data-scientist-salary-prediction.git
+git clone "https://github.com/PavelM90/Data Scientists Salary Prediction Using Regression Models.git"
+
 Navigate to the project directory:
-sh
+
 Copy code
 cd data-scientist-salary-prediction
 Open the Jupyter Notebook:
-sh
+
 Copy code
 jupyter notebook "Data Scientists Salary Prediction Using Regression Models.ipynb"
 File Descriptions
