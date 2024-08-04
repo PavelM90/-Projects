@@ -119,7 +119,7 @@ NOTE: best and last models were trained and saved using google colab with the re
 ## Results
 
   The project provides real-time analytics for soccer matches, including ball possession percentage, player speed, ball tracking, and overall team possession. The output video will have annotations displaying these metrics.
-  ![Example of Analytics](images/example-image.png)
+  [Example of Analytics](images/example-image.png)
 
 
 ## Contributing
