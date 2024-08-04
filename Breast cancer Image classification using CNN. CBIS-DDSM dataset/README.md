@@ -39,16 +39,26 @@ scikit-learn
 keras
 You can install the required libraries using pip:
 Dependencies:
-  os version: N/A
-  pandas version: 2.2.2
-  numpy version: 1.26.4
-  seaborn version: 0.13.2
-  cv2 version: 4.10.0
-  tensorflow version: 2.3.0
-  PIL version: 10.4.0
-  keras version: 2.13.1
-  glob version: N/A
-  PIL version: 10.4.0
+  os version: N/A/
+  
+  pandas version: 2.2.2/
+  
+  numpy version: 1.26.4/
+  
+  seaborn version: 0.13.2/
+  
+  cv2 version: 4.10.0/
+  
+  tensorflow version: 2.3.0/
+  
+  PIL version: 10.4.0/
+  
+  keras version: 2.13.1/
+  
+  glob version: N/A/
+  
+  PIL version: 10.4.0/
+  
 
 pip install pandas numpy matplotlib plotly seaborn opencv-python tensorflow pillow torchvision torch scikit-learn keras
 Usage
