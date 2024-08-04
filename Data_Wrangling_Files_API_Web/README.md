@@ -1,4 +1,4 @@
-![Example of Analytics](images/example-image-wrangling.png)
+![Example of Analytics](images/example-image-wrangling1.png)
 # Socio-Demographic Data Project for Massachusetts
 ## Overview
 This project focuses on the extraction, preparation, and combination of socio-demographic data for the state of Massachusetts from various sources. The primary goal is to compile a comprehensive SQL database from data obtained through flat files, web scraping, and API sources.
