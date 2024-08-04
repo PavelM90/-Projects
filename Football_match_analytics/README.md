@@ -77,33 +77,60 @@ football-match-analytics/
 │   └── Football_Analysis_Images.ipynb
 
 ├── trackers/
+
 │   ├── tracker.py
+
 │   └── __init__.py
+
 ├── stubs/
+
 ├── camera_movement/
+
 │   ├── camera_movement_estimator.py
+
 │   └── __init__.py
+
 ├── utils/
+
 │   ├── video_utils.py
+
 │   ├── bound_box_utils.py
+
 │   └── __init__.py
+
 ├── player_ball_assignment/
+
 │   ├── player_ball_assignment.py
+
 │   └── __init__.py
+
 ├── team_color_assignment/
+
 │   ├── color_assignment.py
+
 │   └── __init__.py
+
 ├── view_transformer/
+
 │   ├── view_transformer.py
+
 │   └── __init__.py
+
 ├── speed_and_ball_estimator/
+
 │   ├── speed_and_ball_estimator.py
+
 │   └── __init__.py
+
 ├── models/
+
 │   ├── best.pt
+
 │   └── last.pt
+
 ├── images/
-│   └── example.png
+
+│   └── example-image.PNG
 
 
 
