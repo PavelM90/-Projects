@@ -1,0 +1,624 @@
+---
+title: "COVID-19 Pandemic analysis - effect of vaccination on death rates."
+author: "Pavel Makarov"
+date: "2023-10-29"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+# COVID-19 Pandemic analysis - effect of vaccination on death rates.
+
+
+The COVID-19 pandemic, caused by the unprecedented rapid spread of the novel coronavirus SARS-CoV-2, has left an immense impact on global public health. The swift and relentless transmission of the virus compelled us to confront a grave and unanticipated public health crisis, resulting in a staggering toll on human life worldwide, including the United States. It is important that we investigate the  dynamics of the pandemic, with a particular focus on the correlation between COVID-19, vaccination campaigns, mortality rates and overall changes in population in the United States. This thorough analysis of available data is fundamental in developing strategies to mitigate the virus's impact, protect communities, and ultimately save lives. Studying COVID-19 and examining vaccination records offers critical insights into the scale of the pandemic and equips us with vital information to shape the course of public health. This research is of utmost urgency and holds the potential to inform predictive modeling, contributing significantly to our collective efforts in combating the pandemic.
+
+As a professional who has been at the forefront of the battle against the COVID-19 pandemic since its inception, the topic holds personal curiosity for me, both as a chemist and now as a data scientist. I am eager to leverage my skills to generate meaningful insights and discover interesting correlations between vaccination and public health in the United States. The data-driven approach to understanding this complex crisis is crucial for our ongoing fight against COVID-19 and for the well-being of communities. Also, it can potentially help with future outbreaks to understand how to plan vaccination. campaigns
+
+
+To analyze this topic thoroughly and have better understanding of the vaccination impact there are several questions that need to be addressed:
+
+## Global Population Dynamics: 
+I will examine global population statistics before and during the COVID-19 pandemic to assess how the virus affected the United States in terms of virus spread and the number of deaths, in comparison to other countries.
+
+## Correlation Between Cases and Deaths: 
+My analysis will focus on the correlation between the number of COVID-19 cases and deaths in the United States, aiming to understand mortality rates and make comparisons with other countries.
+
+## State-level Vaccination Campaigns: 
+I want to investigate the vaccination campaigns in the United States at the state level. This analysis will encompass the initiation, pace, and their impact on the slowing down of the number of deaths.
+
+## Correlation Between Cases, Deaths, and Vaccination: 
+Our research will investigate the correlation between the number of new cases, deaths, and vaccination rates. This will help us assess the effectiveness of vaccination campaigns in curbing the pandemic's impact.
+
+## Demographic Analysis: 
+I will also assess potential biases in vaccination, infection cases, and deaths by considering factors such as gender, age, and race. Understanding demographic disparities is essential for equitable healthcare outcomes.
+
+## Research questions
+1) What is the change in the world population during the COVID-19 pandemic?
+2) What country was affected the most by the COVID-19 pandemic?
+3) Can we assume that the pandemic is the  only cause of population change in 2020-2022?
+4) Was United States affected by the pandemic the most or it was at the same rate as the other countries?
+5) What was the US change in population during the pandemic?
+6) Death/population ratio for the world and where the US stands in this rank?
+7) Was the vaccination effective in the US? What was the change in cases and number of deaths? 
+
+
+To conduct this research, I will utilize the R programming language for data mining, data manipulation, statistical analysis, as well as correlation and prediction modeling.
+Initially, I will acquire the essential datasets required for this study. These datasets include global population statistics, COVID deaths by country, state-level vaccination data in the United States, and weekly updates on cases and deaths provided by the CDC. Each dataset will undergo a comprehensive analysis to assess the quality of variables and identify any necessary data cleaning and transformation.
+I will employ the world population data in conjunction with COVID cases and deaths by country to examine the distribution of COVID-19-related deaths worldwide and to assess the pandemic's impact on the United States. Additionally, I will align the temporal aspects of death cases and the vaccination campaign in the United States. Also, I will analyze the distribution of vaccination data within the United States. Utilizing state-level population data, I will calculate relative vaccination rates by population, enabling the correlation of vaccination rates with the number of deaths by state.
+To address potential biases, I will investigate disparities in deaths and new cases among different age groups, genders, and racial demographics.
+Finally, I will aim to answer the central question of this research: What is the correlation between the number of deaths and vaccination rates in the United States? Moreover, I will endeavor to make predictions regarding the necessary vaccination rates to bring the number of new cases to a minimal level.
+
+
+## Data sets
+https://data.cdc.gov/Case-Surveillance/Weekly-United-States-COVID-19-Cases-and-Deaths-by-/pwn4-m3yp - Weekly United States COVID-19 Cases and Deaths by State
+https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset - World population
+https://www.kaggle.com/datasets/bumjunkoo/us-vaccination-progress - Vaccination in the US
+https://www.kaggle.com/datasets/totoro29/covid19-cases-deaths - Total deaths by country
+These sources will help to adress the research question I have. I will need to standardize the data in terms of time format. Most likely I will be looking at yearly or monthly timeframes. 
+
+## Packages needed for this research - 
+<mark> dplyr<mark>, <mark>tidyr<mark> for data manipulation, reshaping and reformatting.
+<mark>ggplot2<mark> and <mark>plotly<mark> for data visualization.
+<mark>purrr<mark> package to work with dataframes.
+R's built-in statistics package stats package  for basic statistical tests and analysis.
+lmtest and Metrics - Tools for regression analysis and model diagnostics.
+
+## Visualization types 
+The most common plots for this study will be scatter plots including the ones with regression line, scatter plots to find residuals for linear regression assessment, histograms for initial distribution analysis, QQ plots also for distribution analysis and check for outlines. 
+
+## Approach to address the research questions 
+
+To address the research question, several data sets related to the research need to be used. All data sets are currently uncleaned and not standardized, requiring data cleaning and reformatting as necessary. Some of the data frames will be combined for visualization and analysis. To gain a better understanding of the data, various visualization types, such as scatter plots, QQ plots, histograms, and line plots, will be employed. These visualizations aim to identify correlations between population change and the COVID-19 pandemic, as well as to assess statistical aspects of the data, such as normality and distribution.
+
+Additionally, linear regression algorithms will be applied in an attempt to create a predictive model for the number of death cases based on the number of people vaccinated. 
+
+# Data Analysis
+
+First, all required data sets will be uploaded into R to clean up, pre-process and do initial data analysis. To start, I want to analyse world population pre-COVID time
+```{r, comment=NA}
+# Load the data
+population_world <-read.csv("D:/World_population.csv")
+head(population_world)
+
+```
+Next, it is crucial to conduct data cleaning, involving the removal of irrelevant columns and the creation of new variables, such as the change in population between the years 2000 and 2022. Following this. The objective is to determine whether there was a decrease in population between 2020 and 2022 and to assess the impact of the COVID-19 pandemic on overall population trends. However, it is crucial to note that a decline in population growth during the 2020-2022 period cannot be solely attributed to the pandemic. Further investigation will be conducted to unveil the various factors contributing to this trend later in the study.
+
+```{r, comment=NA}
+# Check the data frame fopr NA data points
+colSums(is.na(population_world))
+```
+No NA or missing values in the data set were detected.
+
+Further the irrelevant column will be dropped and some of the column names changed
+```{r, comment=NA}
+# Data clean up. Removing irrelevant columns.
+
+cleaned_population_world <-within(population_world, {
+  X1990.Population <- NULL
+ X1980.Population <- NULL
+  X1970.Population <- NULL
+   Area..km.. <- NULL
+  Rank <- NULL
+  Capital <- NULL
+  Density..per.km..<- NULL
+  Growth.Rate <- NULL
+  World.Population.Percentage <- NULL
+})
+library(dplyr)
+cleaned_population_world <- cleaned_population_world %>% rename(letterCode = CCA3)
+cleaned_population_world <- cleaned_population_world %>% rename(Country = Country.Territory
+)
+head(cleaned_population_world)
+```
+Next I want to add columns that are the results of subtracting population columns by year. 
+```{r, comment=NA}
+# Transform data frame to population change format
+
+cleaned_population_world$'pop_2020-2022' <- cleaned_population_world$X2022.Population - cleaned_population_world$X2020.Population
+cleaned_population_world$'pop_2015-2020' <- cleaned_population_world$X2020.Population - cleaned_population_world$X2015.Population
+cleaned_population_world$'pop_2010-2015' <- cleaned_population_world$X2015.Population - cleaned_population_world$X2010.Population
+cleaned_population_world$'pop_2000-2010' <- cleaned_population_world$X2010.Population - cleaned_population_world$X2000.Population
+head(cleaned_population_world)
+
+
+```
+Here I am screening for the lowest number of the population change in 2020 to 2022 period
+```{r, comment=NA}
+which.min(cleaned_population_world$`pop_2020-2022`)
+print(cleaned_population_world[219,])
+```
+In these results, we observe the most significant negative change in population for a single country between 2020 and 2022. This serves as an illustrative example of a situation where attributing the population change solely to the effects of COVID-19 would be insufficient. During this period, a conflict occurred in Ukraine, resulting in a substantial migration of people. Thus, it is clear that factors beyond the pandemic have played a role. To further investigate population changes, I will proceed by sorting the dataframe in ascending order to identify other countries that experienced a decrease in population during 2020-2022, effectively determining the second lowest values for pop2020-2022.
+
+The data will be sorted to find next minimum change and analyze the population trends for this country.
+```{r, comment=NA}
+sort(unique(cleaned_population_world$`pop_2020-2022`))
+which(cleaned_population_world$`pop_2020-2022` == -1293069)
+print(cleaned_population_world[103,])
+```
+Visualize the change in population to better understand the population change trend. It helps to understand where 2020-2022 change stand in the trend.
+```{r, comment=NA}
+library(ggplot2)
+library(tidyr)
+
+Japan_data <- cleaned_population_world %>% filter(Country == "Japan")
+Japan_data_long <- Japan_data %>%
+  pivot_longer(
+    cols = starts_with("pop_"),
+    names_to = "Year_Range",
+    values_to = "Population"
+  )
+line_plot <- ggplot(Japan_data_long, aes(x = Year_Range, y = Population)) +
+  geom_line(group =1 ) +
+  geom_point() +
+  labs(
+    title = "Population Changes Over Time for Japan",
+    x = "Year Range",
+    y = "Population Change"
+  ) +
+  theme_minimal()
+line_plot
+```
+Analysis of the population change in Japan also showed that the change is not necessarily caused by the COVID-19 pandemic and the trend has started earlier than 2020. In fact the change in 2020 and 2022 for Japans is slightly higher than for 2015-2020. Next I want to see the same graph for the United States.
+```{r, comment= NA}
+which(cleaned_population_world$Country == "United States")
+print(cleaned_population_world[222,])
+```
+```{r, comment=NA}
+# This block of code intended to filter the data frame by specific country and plot the rate of population change
+
+US_data <- cleaned_population_world %>% filter(Country == "United States")
+US_data_long <- US_data %>%
+  pivot_longer(
+    cols = starts_with("pop_"),
+    names_to = "Year_Range",
+    values_to = "Population"
+  )
+line_plot <- ggplot(US_data_long, aes(x = Year_Range, y = Population)) +
+  geom_line(group =1 ) +
+  geom_point() +
+  labs(
+    title = "Population Changes Over Time for the United States",
+    x = "Year Range",
+    y = "Population Change"
+  ) +
+  theme_minimal()
+line_plot
+```
+Here, we observe a noticeable downward trend in population change for the United States. Although it remains positive, there is a discernible decline in the values associated with population change, reaching a minimum during the 2020-2022 period. In the next step, I will analyze global death cases and establish connections between these results and the population changes in the United States.
+
+
+```{r, comment=NA}
+
+# Download the data set for deaths in caused by COVID-19 in each country
+
+deaths_world <-read.csv("D:/Deaths by country.csv")
+head(deaths_world)
+```
+```{r, comment=NA}
+# Data frame size description
+nrow(deaths_world)
+ncol(deaths_world)
+```
+Check if the data set has missing values
+```{r, comment=NA}
+# Check for missing values 
+
+colSums(is.na(deaths_world))
+```
+Although there are some missing values it will be irrelevant when I drop the column unnecessary for this study.
+```{r, comment=NA}
+cleaned_deaths_world <-within(deaths_world, {
+  Total.Cases.per.100k.pop <- NULL
+ New.Cases..7.days. <- NULL
+ New.Cases.per.100k.pop..7.days. <- NULL
+   New.Cases..24.hours. <- NULL
+ Total.Deaths.per.100k.pop <- NULL
+   New.Deaths..7.days. <- NULL
+ New.Deaths.per.100k.pop..7.days.<- NULL
+ New.Deaths..24.hours.  <- NULL
+})
+head(cleaned_deaths_world)
+```
+QQ plot will help to understand the nature of the total cases and total deaths distribution in the world
+```{r, comment=NA}
+# Generate QQ plot for total cases in the world 
+
+
+qqplot_cases <- ggplot(cleaned_deaths_world, aes(sample = log(cleaned_deaths_world$Total.Cases))) +
+  geom_qq() +
+  labs(title = "Q-Q Plot for Total Cases")
+qqplot_cases
+```
+```{r, comment=NA}
+# Generate QQ plot for total deaths in the world 
+
+qqplot_deaths <- ggplot(cleaned_deaths_world, aes(sample = log(cleaned_deaths_world$Total.Deaths))) +
+  geom_qq() +
+  labs(title = "Q-Q Plot for Total Deaths")
+qqplot_deaths
+```
+
+Based on the analysis of QQ plots we can tell that the data for the total death cases and total overall infection cases is normally distributed with some number of outliers.
+An essential procedure when merging two data frames by countries is to ensure the consistency of naming. The following block of code addresses this concern by harmonizing the names to consolidate values for countries with different naming conventions. Additionally, I will remove countries with missing values from both data frames for further data quality assurance 
+
+```{r, comment=NA}
+# Dat frame clean up to allign the country names between two data frames
+
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "United States of America", "United States", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Venezuela (Bolivarian Republic of)", "Venezuela", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "TÃ¼rkiye", "Turkey", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "The United Kingdom", "United Kingdom", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Syrian Arab Republic", "Syria", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Saint BarthÃ©lemy", "Saint Barthelemy", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Russian Federation", "Russia", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "RÃ©union", "Reunion", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Republic of Moldova", "Moldova", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Republic of Korea", "South Korea", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Micronesia (Federated States of)", "Micronesia", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Lao People's Democratic Republic", "Laos", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Iran (Islamic Republic of)", "Iran", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Falkland Islands (Malvinas)", "Falkland Islands", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Democratic Republic of the Congo", "Republic of the Congo", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Viet Nam", "Vietnam", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "United Republic of Tanzania", "Tanzania", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "CÃ´te dâ€™Ivoire", "Ivory Coast", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "CuraÃ§ao", "Curacao", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Brunei Darussalam", "Brunei", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Bolivia (Plurinational State of)", "Bolivia", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "occupied Palestinian territory, including east Jerusalem", "Palestine", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Czechia", "Czech Republic", Country))
+cleaned_deaths_world <- cleaned_deaths_world %>%
+  mutate(Country = ifelse(Country == "Northern Mariana Islands (Commonwealth of the)", "Northern Mariana Islands", Country))
+
+# Drop  some rows with missing data
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Sint Eustatius")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Saint Helena")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Pitcairn Islands")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Other")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Kosovo[1]")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Holy See")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Bonaire")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Congo")
+cleaned_deaths_world <- subset(cleaned_deaths_world, Country != "Saba")
+
+head(cleaned_deaths_world)
+
+```
+```{r, comment=NA}
+# Merge the data frames by country name 
+
+combined_df <- merge(cleaned_population_world, cleaned_deaths_world, by = "Country", all = TRUE)
+head(combined_df)
+```
+
+
+After examination of the combined_df some not combined country names were identified. They will be mutated in the next block of code
+```{r, comment = NA}
+combined_df <- combined_df %>%
+  mutate(Country = ifelse(Country == "Saint BarthÃ©lemy", "Saint Barthelemy", Country))
+combined_df <- combined_df %>%
+  mutate(Country = ifelse(Country == "RÃ©union", "Reunion", Country))
+combined_df <- combined_df %>%
+  mutate(Country = ifelse(Country == "CÃ´te dâ€™Ivoire", "Ivory Coast", Country))
+combined_df <- combined_df %>%
+  mutate(Country = ifelse(Country == "CuraÃ§ao", "Curacao", Country))
+combined_df <- combined_df %>%
+  mutate(Country = ifelse(Country == "Cape Verde", "Cabo Verde", Country))
+```
+
+
+```{r, comment=NA}
+combined_df$death_pop_ratio_2022 <- combined_df$Total.Deaths / combined_df$X2022.Population
+head(combined_df)
+```
+```{r, comment=NA}
+# Remove NA values and find where the United Stands in terms of death to population ratio
+
+combined_df <- na.omit(combined_df)
+combined_df <- combined_df %>%
+  arrange(desc(combined_df$`death_pop_ratio_2022`))
+head(combined_df)
+```
+```{r, comment=NA}
+combined_df <- combined_df[order(combined_df$`death_pop_ratio_2022`), ]
+head(combined_df)
+```
+Based on the ratio of total COVID-19 deaths to the total population in 2022, it is evident that Peru has the highest ratio of COVID-19-related deaths to its population, while Burundi exhibits the lowest ratio of this parameter. When analyzing such data, it is crucial to take into account the varying ways in which countries reported their total death statistics. There is a significant likelihood that some countries may have underreported total deaths in an effort to present more favorable death statistics. This things we do not know and it makes the analysis harder. Although, I will be focusing more on the statistics for th US since the reports were fairly accurate and timely.
+```{r, comment=NA}
+
+rank_of_specific_country <- rank(combined_df$death_pop_ratio_2022)[combined_df$Country == "United States"]
+print(paste("Rank of", "United States", ":", rank_of_specific_country))
+```
+
+
+The United States is ranked 200 which overall is not great ranking based on the ascending order of death_pop_ratio_2022. This means that the ratio between COVID-19 related deaths and population in 2022 is relatively high among the other countries in the world. 
+```{r, comment=NA}
+# Filter by country to create a data frame only for the United States. It helps with isolating the data for the specific conutry to focus on the statistics for the US specifically.
+US_data_combined <- combined_df %>% filter(Country == "United States")
+head(US_data_combined)
+```
+Next section of the study will be primarily focusing on the analysis of the vaccination and new cases and deaths relationships in the US. For this two more data sets will be uploaded into R environment - US vaccination and Weekly death reports. 
+
+```{r, comment=NA}
+# Donwlad data sets to start the analysis of vaccination and new cases in the United States specificaly.
+
+
+Vax_df <-read.csv("D:/US vaccination.csv")
+us_weekly <-read.csv("D:/Weekly_United_States_COVID-19_Cases_and_Deaths_by_State_-_ARCHIVED_20231029.csv")
+
+```
+```{r, comment=NA}
+head(Vax_df)
+```
+```{r, comment=NA}
+head(us_weekly)
+```
+In order to analyze the trends between the new cases mortality caused by COVID-19 I will need to clean the data set, remove unnecessary column and bring the dates from two different data sets to the same format.  
+```{r, comment=NA}
+cleaned_Vax_df <-within(Vax_df, {
+  people_fully_vaccinated_per_hundred <- NULL
+ total_vaccinations_per_hundred <- NULL
+ people_vaccinated_per_hundred <- NULL
+  distributed_per_hundred <- NULL
+ daily_vaccinations_raw <- NULL
+   daily_vaccinations_per_million <- NULL
+ share_doses_used.<- NULL
+ total_boosters  <- NULL
+ total_boosters_per_hundred  <- NULL
+ share_doses_used <- NULL
+})
+head(cleaned_Vax_df)
+```
+Data set corresponding to the weekly report of total COVID-19 cases and total deaths needs to be cleaned as well. It was decided to drop all column except date, total cases and total deaths
+```{r, comment=NA}
+# Clean up the data frame by removing irrelevant columns 
+
+cleaned_us_weekly <-within(us_weekly, {
+  start_date <- NULL
+ end_date <- NULL
+ tot_cases <- NULL
+  tot_deaths <- NULL
+ new_historic_cases <- NULL
+   new_historic_deaths <- NULL
+})
+cleaned_us_weekly$date_updated <- as.Date(cleaned_us_weekly$date_updated, format ="%m/%d/%Y")
+new_column_names <- c("date", "state", "new_cases", "new_deaths")
+names(cleaned_us_weekly) <-new_column_names
+
+```
+```{r, comment=NA}
+combined_data <- cleaned_us_weekly %>%
+  group_by(date) %>%
+  summarize(new_deaths = sum(new_deaths), new_cases = sum(new_cases)) 
+head(combined_data)
+
+```
+I want to visualize the distribution of total number of deaths and cases.
+```{r, comment=NA}
+# Plot histogram for number of new deaths in the US
+
+hist_plot <- ggplot(combined_data, aes(x = new_deaths, y = ..count..)) +
+  geom_histogram(bins = 30, colour = "black", fill = "white", position = "dodge" ) 
+  labs(title = "Score Distribution in Regular Section", x = "Score", y = "Count") +
+  theme(plot.title = element_text(hjust = 0.5))
+  
+hist_plot
+```
+```{r, comment=NA}
+
+hist_plot <- ggplot(combined_data, aes(x = new_cases, y = ..count..)) +
+  geom_histogram(bins = 35, colour = "black", fill = "white", position = "dodge" ) 
+  labs(title = "Score Distribution in Regular Section", x = "Score", y = "Count") +
+  theme(plot.title = element_text(hjust = 0.5))
+  
+hist_plot
+```
+```{r, comment=NA}
+library(scales)
+line_plot <- ggplot(combined_data, aes(x = date, y = new_deaths)) +
+  geom_point() +
+  labs(
+    title = "Change in the new death cases caused by COVID-19 in the United States",
+    x = "Dates",
+    y = "Death cases"
+  ) +
+  theme_minimal()
+line_plot <- line_plot +
+  scale_x_date(date_breaks = "1 year", date_labels = " %Y")
+line_plot
+```
+```{r, comment=NA}
+line_plot <- ggplot(combined_data, aes(x = date, y = new_cases)) +
+  geom_point() +
+  labs(
+    title = "Change in the new infection cases caused by COVID-19 in the United States",
+    x = "Dates",
+    y = "Infection cases"
+  ) +
+  theme_minimal()
+line_plot <- line_plot +
+  scale_x_date(date_breaks = "1 year", date_labels = " %Y")
+line_plot
+```
+Both visualizations demonstrate a overall downtrend in total deaths and cases in the United States with some peaks corresponding to different COVID-19 variants appearance which affected the total cases but not as much deaths. This information confirms the hypothesis about the viruses that any future mutations make a virus more infections but less deadly. 
+ 
+
+
+The vaccination data frame needs to be reformatted as well so it can be combined together with the weekly updates data.
+```{r, comment=NA}
+cleaned_Vax_df$date <- as.Date(cleaned_Vax_df$date, format ="%m/%d/%Y")
+head(cleaned_Vax_df)
+
+
+```
+```{r, comment = NA}
+cleaned_Vax_df <- na.omit(cleaned_Vax_df)
+combined_data_vax <- cleaned_Vax_df %>%
+  group_by(date) %>%
+  summarize(total_vaccinations = sum(total_vaccinations), total_distributed = sum(total_distributed),people_vaccinated = sum(people_vaccinated), people_fully_vaccinated = sum(people_fully_vaccinated),
+            daily_vaccinations = sum(daily_vaccinations)) 
+head(combined_data_vax)
+
+```
+
+
+```{r, comment=NA}
+line_plot <- ggplot(combined_data_vax, aes(x = date, y = people_vaccinated)) +
+  geom_point() +
+  labs(
+    title = "People vaccinated in the United States",
+    x = "Years",
+    y = "Vaccinations"
+  ) +
+  theme_minimal()
+line_plot <- line_plot +
+  scale_x_date(date_breaks = "1 year", date_labels = " %Y")
+line_plot
+
+```
+There are multiple outliers on this scatter plot graphs. After several attempts removing these otliers it was decided to change y axis to a log scale to minimize the outliers effect.
+
+```{r, comment = NA}
+combined_data_vax$log_total_vaccinations <- log(combined_data_vax$people_vaccinated)
+
+line_plot <- ggplot(combined_data_vax, aes(x = date, y = log_total_vaccinations)) +
+  geom_point() +
+  labs(
+    title = "People vaccinated in the United States. Log Scale",
+    x = "Years",
+    y = " Log 10 Vaccinations"
+  ) +
+  theme_minimal()
+line_plot <- line_plot +
+  scale_x_date(date_breaks = "1 year", date_labels = " %Y")
+line_plot
+```
+To  visualize  the rate of vaccination in the US, the scatter plot is generated. It is evident that the rate started reaching its maximum around the beginning of 2022. This is the time when the death cases went significantly down. It is also important to visualize the amount of people fully vaccinated  to understand if there is an effect between new infection cases and new death cases depending if the population fully vaccinated or just received any dose. For this visualization the scale will also be changed to log scale to minimize the outliers.
+
+```{r, comment=NA}
+combined_data_vax$log_people_fully_vax <- log(combined_data_vax$people_fully_vaccinated)
+line_plot <- ggplot(combined_data_vax, aes(x = date, y = log_people_fully_vax)) +
+  geom_point() +
+  labs(
+    title = "People fully vaccinated in the United States. Log scale",
+    x = "Years",
+    y = " Log Fully Vaccinated"
+  ) +
+  theme_minimal()
+line_plot <- line_plot +
+  scale_x_date(date_breaks = "1 year", date_labels = " %Y")
+line_plot
+```
+Comparing plots for People vaccinated vs People fully vaccinated it can be concluded that the change rate of fully vaccinated people also reached its maximum around the beginning of 2022 with slight time lag. It is correlating with the CDC and vaccine manufacturers guideline of receiving 2nd dose in 21 to 28 days after the 1st dose. It is evident that the campaing worked as proposed and the US population followed the guidelines.
+
+
+
+```{r, comment=NA}
+library (lubridate)
+combined_data$month_year <- format(combined_data$date, "%m/%Y")
+combined_data_vax$month_year <- format(combined_data_vax$date, "%m/%Y")
+
+
+predict_data_vax <-within(combined_data_vax, {
+  total_vaccinations <- NULL
+ total_distributed <- NULL
+ people_vaccinated <- NULL
+  daily_vaccinations <- NULL
+  log_total_vaccinations <- NULL
+  log_people_fully_vax <- NULL
+})
+
+
+summarized_vax <- predict_data_vax %>%
+  group_by(month_year = format(date, "%m/%Y")) %>%
+  summarize(people_fully_vaccinated = sum(people_fully_vaccinated))
+
+
+summarized_vax<-within(summarized_vax, {
+  date <- NULL
+})
+head(summarized_vax)
+
+
+
+```
+```{r, comment=NA}
+summarized_covid <- combined_data %>%
+  group_by(month_year = format(date, "%m/%Y")) %>%
+  summarize(new_deaths = sum(new_deaths), new_cases = sum(new_cases))
+head(summarized_covid)
+
+```
+```{r, comment=NA}
+merged_df <- merge(summarized_covid, summarized_vax, by = "month_year", all.x = TRUE)
+head(merged_df)
+```
+```{r, comment=NA}
+merged_df$month_year <- as.Date(merged_df$month_year, format = "%mm/%YYYY")
+head(merged_df)
+```
+```{r, comment=NA}
+reg_model_log_sqft <- lm(log(merged_df$new_deaths) ~ log(merged_df$people_fully_vaccinated))
+summary(reg_model_log_sqft)
+```
+ The model doesn't appear to be providing a good fit to the data. The adjusted R-squared is negative indicating there is a a negative effect on new death cases but the p-value for the coefficient of the logarithm of people fully vaccinated is high, indicating that this variable is not a statistically significant predictor in the model. You may want to explore other predictors or consider a different modeling approach. The modeling of such a complexed data might be extremely complicated due to the nature of the data. However, just from the scatter plots comparison of the inflection point we can see the significant decrease of death cases and the amount of people fully vaccinated. 
+
+
+To finalize this research I want to visualize the US map with vaccination heat map to demonstrate the vaccinations by state.
+
+```{r, comment=NA,fig.width=10, fig.height=6}
+library(usmap)
+library(dplyr)
+
+summarized_map_vax_df <- cleaned_Vax_df %>%
+  group_by(location) %>%
+  summarise(total_people_fully_vaccinated = sum(people_fully_vaccinated, na.rm = TRUE))
+
+summarized_map_vax_df <- summarized_map_vax_df %>%
+  rename(state = location)
+
+plot_usmap(data = summarized_map_vax_df, values = "total_people_fully_vaccinated", 
+           color = "white", labels = TRUE, name_column = "id") +
+  scale_fill_continuous(name = "People total_people_fully_vaccinated Vaccinated", 
+                        label = scales::comma_format()) +
+  theme(legend.position = "right")
+```
+It is evident that the largest states with the highest population have higher number of fully vaccinated people. Overall the map demonstrates that the vaccination campaign was successful in the us and there is no obvious outliers in terms of low number of vaccinated people. 
+
+
+# Conclusion
+
+## Limitations 
+First, during the analysis, it was identified that the correlation between population change and the COVID-19 pandemic is not as evident due to multiple factors that can affect the population change. There is no clear direct correlation between population change in 2020-2022 and the COVID-19 pandemic. Such aspects as immigration might affect the population change significantly more than the COVID-19 pandemic. 
+Second, it was difficult to make a model where we can see a direct dependence on vaccination and new cases or deaths. It is necessary to consider the nature of the virus because it is natural for the virus to mutate and be more infectious. This is why there are sharp spikes on the scatter plot corresponding to new cases. Additionally, there is an aspect of seasonality when virus outbreaks are more severe.
+
+## Implications 
+Based on the conducted analysis, several vital points can be outlined to address the research questions. As described in the limitations, it was hard to relate the change in world population to the COVID-19 pandemic as other aspects also affect it: organic population changes, immigration, and other social and economic aspects. There is no clear evidence of a significant change in world population. Based on the ratio of total COVID-19 deaths to the total population in 2022, it is evident that Peru has the highest ratio of COVID-19-related deaths to its population, while Burundi exhibits the lowest ratio of this parameter. The United States is taking position number 200 in this rank, which indicates high death rates caused by COVID-19. 
+
+The analysis of vaccination in the United States was more complicated than expected due to viral infection. However, during the analysis of the vaccinations and death reports in the United States, it was observed that the inflection point in the new deaths and new cases corresponds to the vaccination curve reaching its maximum. it concludes that to turn the pandemic down, a sufficient number of people must be vaccinated so that the viral spread goes down. From the visualization of people fully vaccinated, it is evident that the United States had an excellent vaccination campaign on the federal level and that all states followed the recommendations and vaccination guidelines.
+
+
