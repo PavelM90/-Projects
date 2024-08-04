@@ -57,15 +57,25 @@
   python main.py
 ## Directory Structure
 football-match-analytics/
+
 ├── main.py
+
 ├── Object_Detection.ipynb
+
 ├── input_videos/
+
 │   └── input_video.mp4
+
 ├── output_videos/
+
 │   └── output_video.avi
+
 ├── development_and_analysis/
+
 │   ├── color_assignment.ipynb
+
 │   └── Football_Analysis_Images.ipynb
+
 ├── trackers/
 │   ├── tracker.py
 │   └── __init__.py
