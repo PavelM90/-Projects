@@ -33,10 +33,10 @@ Description: This notebook focuses on extracting data from web sources using web
 
 c. API Integration
 
-## File: Data Wrangling Projects Part 3 Data Extraction from API source.ipynb
-
-## Description: 
+File: Data Wrangling Projects Part 3 Data Extraction from API source.ipynb
+Description: 
 This notebook involves extracting data from various APIs, processing the responses, and preparing the data for integration with other sources.
+
 
 2. Data Preparation
 
