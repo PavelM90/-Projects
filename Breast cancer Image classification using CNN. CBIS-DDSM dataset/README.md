@@ -47,8 +47,9 @@ scikit-learn
 
 keras
 
-You can install the required libraries using pip:
+
 Dependencies:
+
   os version: N/A
   
   pandas version: 2.2.2
@@ -69,9 +70,11 @@ Dependencies:
   
   PIL version: 10.4.0
   
+You can install the required libraries using pip:
 
 pip install pandas numpy matplotlib plotly seaborn opencv-python tensorflow pillow torchvision torch scikit-learn keras
-Usage
+
+## Usage
 Clone this repository:
 
 git clone "https://github.com/PavelM90/Breast cancer Image classification using CNN. CBIS-DDSM dataset.git"/
@@ -81,7 +84,7 @@ Run the Jupyter Notebook:
 
 jupyter notebook "Breast cancer Image classification using CNN. CBIS-DDSM dataset_july.ipynb"
 
-NOTE: The dataset is too large to upload to the repo; please use this link to find the data  https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
+### NOTE: The dataset is too large to upload to the repo; please use this link to find the data  https://www.kaggle.com/datasets/awsaf49/cbis-ddsm-breast-cancer-image-dataset
 
 ## File Descriptions
 Breast cancer Image classification using CNN. CBIS-DDSM dataset_july.ipynb: The main notebook containing the code for data preprocessing, model training, evaluation, and visualization./
