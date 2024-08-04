@@ -21,20 +21,29 @@ Database Creation
 
 Combining all the data into a SQL database for efficient storage and querying.
 ## Files and Notebooks
+
 1. Data Extraction
 a. Flat Files
 File: Data Wrangling Project Part 1 Flat File preparation.ipynb
 Description: This notebook covers the extraction and preparation of data from flat files, including loading data, cleaning, and preliminary analysis.
+
 b. Web Scraping
 File: Datra Wrangling Projects Part 2 Web scraping.ipynb
 Description: This notebook focuses on extracting data from web sources using web scraping techniques. It includes scripts for scraping relevant socio-demographic data and processing it for further analysis.
+
 c. API Integration
-File: Data Wrangling Projects Part 3 Data Extraction from API source.ipynb
-Description: This notebook involves extracting data from various APIs, processing the responses, and preparing the data for integration with other sources.
+
+## File: Data Wrangling Projects Part 3 Data Extraction from API source.ipynb
+
+## Description: 
+This notebook involves extracting data from various APIs, processing the responses, and preparing the data for integration with other sources.
+
 2. Data Preparation
+
 a. Data Combination
 File: Data Wrangling - Combination of the sources.ipynb
 Description: This notebook demonstrates the process of combining data from flat files, web scraping, and API sources into a single dataset. It includes data cleaning, transformation, and merging steps.
+
 3. Database Creation
 Description: Creation of a SQL database to store the combined dataset, allowing for efficient querying and retrieval of socio-demographic data.
 
