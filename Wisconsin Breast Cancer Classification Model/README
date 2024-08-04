@@ -47,22 +47,29 @@ To run this project, you need to have the following installed:
 •	Python 3.x
 •	Jupyter Notebook
 •	Required Python libraries – pandas, seaborn, matplotlib, numpy, Sklearn, xgboost, joblib
+Dependencies:
+ pandas version: 2.2.2
+ seaborn version: 0.13.2
+ numpy version: 1.26.4
+ scikit-learn version: 1.4.2
+ xgboost version: 2.0.3
+
+Run Breast Cancer Classification Model - Wisconsin Data Set.ipynb
 
 
-
-Results
-The final model achieves an accuracy of 0.98% on the test set, with precision 0.98, recall 0.96, and F1-score 0.97. Detailed results and visualizations can be found in the Breast Cancer Classification Model - Wisconsin Data Set.ipynb notebook or in the white paper in the the folder provided in the  Links section
+# Results
+The final model achieves an accuracy of 0.98% on the test set, with precision 0.98, recall 0.96, and F1-score 0.97. Detailed results and visualizations can be found in the Breast Cancer Classification Model - Wisconsin Data Set.ipynb notebook or in the white paper in the folder provided in the  Links section
 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request or open an Issue to discuss any changes or improvements.
 
 
 
-Links
+# Links
 https://github.com/PavelM90/-Projects/tree/35099beed16a0ba47a4165222851987e3d0901fd/Wisconsin%20Breast%20Cancer%20Classification%20Model
 https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
 
 
-License
+# License
 This project is licensed under the MIT License. 
 Acknowledgements
 •	The dataset used in this project is publicly available from the UCI Machine Learning Repository.
