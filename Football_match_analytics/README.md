@@ -55,49 +55,46 @@
 
   Copy code
   python main.py
-  Directory Structure
+## Directory Structure
 
-  Copy code
-  football-match-analytics/
-  ├── main.py
-  ├── Object_Detection.ipynb
-  ├── input_videos/
-  │   └── input_video.mp4
-  └── output_videos/
-  ├── input_videos/
-  │   └── input_video.mp4
-  ├── development_and_analysis
-  │    └── color_assignment.ipynb
-  │    └── Football_Analysis_Images.ipynb
-  ├── trackers
-  │   └── tracker.py
-  │   └── __init__.py
-  ├── stubs
-  │   
-  ├── camera_movement
-  │   └── camera_movement_estimator.py
-  │   └── __init__.py
-  ├── utils
-  │   └── video_utils.py
-  |   └── bound_box_utils.py
-  │   └── __init__.py
-  ├── palyer_ball_assignment
-  |   └── palyer_ball_assignment.py
-  │   └── __init__.py
-  ├── team_color_assignment
-  |   └── color_assignment.py
-  │   └── __init__.py
-  ├── view_transformer
-  |   └── view_transformer.py
-  │   └── __init__.py
-  ├── speed_and_ball_estimator
-  |   └── speed_and_ball_estimator.py
-  │   └── __init__.py
-  ├── models
-  |   └── best.pt
-  │   └── last,pt
-  ├── images
-  |   └── example.png
+football-match-analytics/
+├── main.py
+├── Object_Detection.ipynb
+├── input_videos/
+│   └── input_video.mp4
+├── output_videos/
+│   └── output_video.avi
+├── development_and_analysis/
+│   ├── color_assignment.ipynb
+│   └── Football_Analysis_Images.ipynb
+├── trackers/
+│   ├── tracker.py
+│   └── __init__.py
+├── stubs/
+├── camera_movement/
+│   ├── camera_movement_estimator.py
+│   └── __init__.py
+├── utils/
+│   ├── video_utils.py
+│   ├── bound_box_utils.py
+│   └── __init__.py
+├── player_ball_assignment/
+│   ├── player_ball_assignment.py
+│   └── __init__.py
+├── team_color_assignment/
+│   ├── color_assignment.py
+│   └── __init__.py
+├── view_transformer/
+│   ├── view_transformer.py
+│   └── __init__.py
+├── speed_and_ball_estimator/
+│   ├── speed_and_ball_estimator.py
+│   └── __init__.py
+├── models/
+│   ├── best.pt
+│   └── last.pt
+├── images/
+│   └── example.png
 
 
 
