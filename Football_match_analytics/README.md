@@ -1,4 +1,4 @@
-[image](images/example-image-football.png)
+![image](images/example-image-football.png)
 ## Football Match Analytics
   This repository contains a project that utilizes computer vision and machine learning to analyze football match videos. The project focuses on real-time analytics such as ball possession percentage, player speed, ball tracking, and team possession using Convolutional Neural Networks (CNNs) and other ML techniques.
   Modern professional sports are highly competitive, relying heavily on deep analysis of past games for better preparation. 
