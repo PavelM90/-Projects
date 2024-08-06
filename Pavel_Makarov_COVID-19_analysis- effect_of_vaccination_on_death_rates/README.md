@@ -27,25 +27,37 @@ This project aims to analyze the impact of COVID-19 vaccination efforts on the d
   To run this project, you need to have R and the following packages installed:
 
   tidyverse
+  
   lubridate
+  
   ggplot2
+  
   dplyr
+  
 ## You can install the required packages using the following commands in R:
 
   install.packages("tidyverse")
+  
   install.packages("lubridate")
+  
   install.packages("ggplot2")
+  
   install.packages("dplyr")
+  
 ## Data sets
   https://data.cdc.gov/Case-Surveillance/Weekly-United-States-COVID-19-Cases-and-Deaths-by-/pwn4-m3yp - Weekly United States COVID-19 Cases and Deaths by State
+  
   https://www.kaggle.com/datasets/iamsouravbanerjee/world-population-dataset - World population
+  
   https://www.kaggle.com/datasets/bumjunkoo/us-vaccination-progress - Vaccination in the US
+  
   https://www.kaggle.com/datasets/totoro29/covid19-cases-deaths - Total deaths by country
+  
  
 ## Usage
   Clone this repository:
 
-  git clone https://github.com/PavelM90/-Projects/tree/main/Pavel_Makarov_COVID-19_analysis-%20effect_of_vaccination_on_death_rates.git
+  git clone https://github.com/PavelM90/-Projects/tree/main/Pavel_Makarov_COVID-19_analysis-effect_of_vaccination_on_death_rates.git
   Navigate to the project directory:
 
 
