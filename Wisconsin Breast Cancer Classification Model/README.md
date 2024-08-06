@@ -10,44 +10,78 @@ This supervised machine learning model can assist in the automated detection of 
 
 ## Dataset
 The dataset consists of 32 features computed from nuclei characteristics and a target variable (diagnosis) indicating whether the tumor is benign (B) or malignant (M). The features include:
+
 0   id                       569 non-null    int64  
+
  1   diagnosis                569 non-null    object 
+ 
  2   radius_mean              569 non-null    float64
+ 
  3   texture_mean             569 non-null    float64
+ 
  4   perimeter_mean           569 non-null    float64
+ 
  5   area_mean                569 non-null    float64
+ 
  6   smoothness_mean          569 non-null    float64
+ 
  7   compactness_mean         569 non-null    float64
+ 
  8   concavity_mean           569 non-null    float64
+ 
  9   concave points_mean      569 non-null    float64
+ 
  10  symmetry_mean            569 non-null    float64
+ 
  11  fractal_dimension_mean   569 non-null    float64
+ 
  12  radius_se                569 non-null    float64
+ 
  13  texture_se               569 non-null    float64
+ 
  14  perimeter_se             569 non-null    float64
+ 
  15  area_se                  569 non-null    float64
+ 
  16  smoothness_se            569 non-null    float64
+ 
  17  compactness_se           569 non-null    float64
+ 
  18  concavity_se             569 non-null    float64
+ 
  19  concave points_se        569 non-null    float64
+ 
  20  symmetry_se              569 non-null    float64
+ 
  21  fractal_dimension_se     569 non-null    float64
+ 
  22  radius_worst             569 non-null    float64
+ 
  23  texture_worst            569 non-null    float64
+ 
  24  perimeter_worst          569 non-null    float64
+ 
  25  area_worst               569 non-null    float64
+ 
  26  smoothness_worst         569 non-null    float64
+
+ 
  27  compactness_worst        569 non-null    float64
+ 
  28  concavity_worst          569 non-null    float64
+ 
  29  concave points_worst     569 non-null    float64
+ 
  30  symmetry_worst           569 non-null    float64
+ 
  31  fractal_dimension_worst  569 non-null    float64
+ 
  32  Unnamed: 32              0 non-null      float64
 
 
 
-Getting Started
-Prerequisites
+## Getting Started
+### Prerequisites
 To run this project, you need to have the following installed:
 
 •	Python 3.x
