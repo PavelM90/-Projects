@@ -115,7 +115,8 @@ Contributions are welcome! Please feel free to submit a Pull Request or open an 
 
 ## Links
 https://github.com/PavelM90/-Projects/tree/35099beed16a0ba47a4165222851987e3d0901fd/Wisconsin%20Breast%20Cancer%20Classification%20Model
-https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
+
+Data - https://www.kaggle.com/datasets/uciml/breast-cancer-wisconsin-data
 
 
 ## License
