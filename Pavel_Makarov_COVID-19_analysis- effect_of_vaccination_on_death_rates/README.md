@@ -57,7 +57,7 @@ This project aims to analyze the impact of COVID-19 vaccination efforts on the d
 ## Usage
   Clone this repository:
 
-  git clone https://github.com/PavelM90/-Projects/tree/main/Pavel_Makarov_COVID-19_analysis-effect_of_vaccination_on_death_rates.git
+  git clone https://github.com/PavelM90/-Projects/Pavel_Makarov_COVID-19_analysis-effect_of_vaccination_on_death_rates.git
   Navigate to the project directory:
 
 
