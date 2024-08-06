@@ -1,4 +1,5 @@
-## COVID-19 Analysis: Effect of Vaccination on Death Rates
+![covid_image](images/example-image-covid.png)
+# COVID-19 Analysis: Effect of Vaccination on Death Rates
 
   This repository contains an analysis project that examines the effect of COVID-19 vaccination on death rates. 
   The analysis uses data from various sources to explore the correlation between vaccination rates and mortality due to COVID-19.
