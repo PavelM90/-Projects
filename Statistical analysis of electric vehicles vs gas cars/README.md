@@ -18,7 +18,7 @@ Reject the null hypothesis for top speed
 Reject the null hypothesis for acceleration
 T statistics for the top speed hypothesis: 6.248005320456953 p-values for the top speed hypothesis: 1.022737777876629e-08
 T statistics for the acceleration hypothesis: -4.261290437403599 p-value for the acceleration hypothesis: 4.6061132267831526e-05
-For more information please review Statistical analysis of electric vehicles vs gas cars.ipynb
+For more information, please review the Statistical analysis of electric vehicles vs gas cars.ipynb
 
 A linear regression model was built to predict a car price based on characteristics. Model's R-squared value 0.90, F-statistic:	7.842
 
@@ -40,11 +40,17 @@ The analysis shows that Tesla vehicles are significantly faster in either top sp
 ## Requirements
 
 -pandas 
+
 -numpy 
+
 -thinkstats2
+
 -thinkplot
+
 -matplotlib
+
 -statsmodels
+
 -scipy
 
 
