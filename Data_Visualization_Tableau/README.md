@@ -1,5 +1,5 @@
 
-
+![Airplane Background](images/example-image-plane.png)
 # Airplane Safety Data Visualization Project
 ## Project Overview
 This project aims to demonstrate that airplane safety remains high and that flying is safe. The project includes a Tableau dashboard, a presentation, a blog post, and an infographic, all of which are designed to support this conclusion with relevant statistics and visualizations.
@@ -41,6 +41,6 @@ This project combines data visualization, written content, and visual design to 
 ## Contact Information
 For any questions or further information, please contact:
 
-Email: mack7151@gmaiil.com
+Email: mack7151@gmail.com
 
 Thank you for your interest in the Airplane Safety Data Visualization Project.
