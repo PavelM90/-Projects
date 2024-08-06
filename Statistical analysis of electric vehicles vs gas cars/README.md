@@ -1,5 +1,5 @@
 
-1[ev_image](images/example-image-ev.png)
+![ev_image](images/example-image-ev.png)
 # Statistical Analysis of Electric Vehicles
 
 ## Overview
