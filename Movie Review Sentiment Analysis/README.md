@@ -39,7 +39,7 @@ The following libraries and tools are used in this notebook:
 - **Pscikit-learn version: 1.4.2**
 - **PMatplotlib version: 3.8.4**
 - **PSeaborn version: 0.13.2**
-- 
+  
 ## Workflow
 
 The workflow of the notebook includes:
