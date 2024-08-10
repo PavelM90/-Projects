@@ -21,7 +21,8 @@ Sentiment analysis is a key application of NLP in determining the sentiment behi
 ## Dataset
 
 The dataset used in this project consists of movie reviews and their corresponding sentiment labels (positive/negative). This dataset can be publicly available, like IMDb or a custom one.
-
+Link to the data set
+![Link](https://ai.stanford.edu/~amaas/data/sentiment/)
 ## Libraries and Tools
 
 The following libraries and tools are used in this notebook:
