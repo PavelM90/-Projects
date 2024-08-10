@@ -25,15 +25,16 @@ This project is a combination of three smaller projects. The focus is to demonst
 6)	Data Visualization: Dashboard, Infographic, Blog Post.
 This project combines a few small projects focused on design and visualizations. I utilized design and dashboard-building tools to show data visualization skills. I used a case of sales improvement for Southwest Airlines by providing information on air traveling safety and communicating it publically.
 
-7)	Big Data Project.
-This is a placeholder for DSC650 final project. Once the topic is defined, I will add a description.
+7)	Movie Sentiment analysis.
+This project aims to develop a movie sentiment analysis using labeled reviews. Natural language preprocessing tools were applied to train Logistic Regression and Support Vector Machine models.
+The Logistic Regression model demonstrated better performance based on the evaluation metrics."
 
-8)	Breast cancer detection Part I:  Wisconsin Breast Cancer data set – classification models 
+9)	Breast cancer detection Part I:  Wisconsin Breast Cancer data set – classification models 
 This project aimed to classify a cell as cancerous or non-cancerous by utilizing different algorithms: logistic regression, random forest, and XGBoost algorithms. The data used for this project is the Wisconsin Breast Cancer data set. 
 
-9)	Breast cancer detection Part II: Breast Scan analysis using Neural Networks.
+10)	Breast cancer detection Part II: Breast Scan analysis using Neural Networks.
 For this project, I plan to continue working on breast cancer detection. The goal is to develop a neural network model that will use breast scans to classify for cancer detection. This project is a continuation of the previous project and can improve the classification accuracy when combined with the XGBoost classification model.
 
-10)	Football match real-time analytics using Neural Networks
+11)	Football match real-time analytics using Neural Networks
     This project is focused on developing a tool that shows on-screen match statistics. The model is focused on object recognition using the YOLO model, as well as object assignment and tracking. This information is used to calculate ball possession, speed, player and ball tracking and team total possesion. This model can be used for mp4 format video files and also can be modified to work with online video streams.
 
