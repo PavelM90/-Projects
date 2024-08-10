@@ -1,5 +1,7 @@
 # Movie Sentiment Analysis using NLP and Classification Models
 ![Image_Movie](images/example-image-movie.png)
+
+
 This Jupyter Notebook demonstrates a movie sentiment analysis using Natural Language Processing (NLP) techniques and various classification models. The project aims to analyze and predict the sentiment (positive or negative) expressed in movie reviews.
 
 ## Table of Contents
